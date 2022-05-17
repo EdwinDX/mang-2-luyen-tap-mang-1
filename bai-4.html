@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<input type="number" id="inputNumber" placeholder="Nhập số nguyên">
+<button id="btn" onclick="input_Numbers()">Xác nhận</button>
+<p id="showCurrent"></p>
+<button id="btnMax" onclick="find_Max()">Xác nhận</button>
+<p id="showMax"></p>
+<script>
+    let arr = [];
+    function input_Numbers() {
+        let value = +document.getElementById('inputNumber').value;
+        arr[arr.length] = value;
+        document.getElementById('showCurrent').innerHTML = arr;
+        document.getElementById('inputNumber').value = '';
+    }
+    function find_Max() {
+        let max = arr[0];
+        let average = 0;
+        let sum = 0;
+        for (let i = 0;i<arr.length;i++) {
+            if (arr[i]>max) {
+                max = arr[i];
+            }
+            sum += arr[i];
+        }
+        average = sum/(arr.length);
+        document.getElementById('showMax').innerHTML = 'Giá trị lớn nhất trong mảng là '+max+'<br>Giá trị trung bình của mảng là '+average;
+    }
+</script>
+</body>
+</html>

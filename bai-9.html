@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 9</title>
+</head>
+<body>
+<script>
+    let arrA = [];
+    let a = +prompt('nhập số phần tử mảng a');
+    arrA.length = a;
+    for (let i=0;i<arrA.length;i++) {
+        arrA[i] = 0;
+        arrA[i] =  Math.floor(Math.random() * 20);
+    }
+    document.write('Mảng a: '+ arrA+'<br>');
+    let arrB = [];
+    let b = +prompt('nhập số phần tử mảng b');
+    arrB.length = b;
+    for (let i=0;i<arrB.length;i++) {
+        arrB[i] = 0;
+        arrB[i] =  Math.floor(Math.random() * 20);
+    }
+    document.write('Mảng b: '+ arrB+'<br>');
+    let arrC = arrA.concat(arrB)
+    document.write('Mảng c: '+ arrC+'<br>');
+</script>
+</body>
+</html>

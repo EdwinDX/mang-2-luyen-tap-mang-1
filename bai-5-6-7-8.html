@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5-6-7-8</title>
+</head>
+<body>
+<input type="number" id="inputNumber" placeholder="Nhập số nguyên">
+<button id="btn" onclick="input_Numbers()">Xác nhận</button>
+<p id="show"></p>
+<button id="btn1" onclick="daonguoc()">Đảo ngược</button>
+<p id="show1"></p>
+<button id="btn2" onclick="dem_SoAm()">Đếm số nguyên âm</button>
+<p id="show2"></p>
+<input type="number" id="inputV" placeholder="Nhập số nguyên V cần tìm">
+<button id="btn3" onclick="check_V()">Tìm</button>
+<p id="show3"></p>
+<button id="btn4" onclick="check_V_AndErase()">Tìm và xóa</button>
+<p id="show4"></p>
+<button id="btn5" onclick="sort_MaxToMin()">Sắp xếp giảm dần</button>
+<p id="show5"></p>
+<script>
+    let arr = [];
+    function input_Numbers() {
+        let value = +document.getElementById('inputNumber').value;
+        arr[arr.length] = value;
+        document.getElementById('show').innerHTML = arr;
+        document.getElementById('inputNumber').value = '';
+    }
+    function daonguoc() {
+        arr.reverse();
+        document.getElementById('show1').innerHTML = arr;
+    }
+    function dem_SoAm() {
+        let count = 0;
+        for (let i = 0;i<arr.length;i++) {
+            if (arr[i]<0) {
+                count++;
+            }
+        }
+        document.getElementById('show2').innerHTML = count;
+    }
+    function check_V() {
+        let numV = +document.getElementById('inputV').value;
+        let check = false;
+        for (let i = 0;i<arr.length;i++) {
+            if (arr[i]===numV) {
+                check = true;
+                break;
+            }
+        }
+        if (check===true) {
+            document.getElementById('show3').innerHTML = 'V is in the array';
+        }
+        else {
+            document.getElementById('show3').innerHTML = 'V is not in the array';
+        }
+    }
+    function check_V_AndErase() {
+        let numV = +document.getElementById('inputV').value;
+        for (let i = 0;i<arr.length;i++) {
+            if (numV===arr[i]) {
+                for (let j=0;j<arr.length;j++) {
+                    if (j>=i) {
+                        if (j===arr.length-1) {
+                            arr[j]=0;
+                        }
+                        else {
+                            arr[j]=arr[j+1];
+                        }
+                    }
+                }
+            }
+        }
+        document.getElementById('show4').innerHTML = arr;
+    }
+    function sort_MaxToMin() {
+        let mid;
+        for (let i=0;i<arr.length;i++) {
+            for (let j=0;j<arr.length;j++) {
+                if (arr[j]<arr[j+1]) {
+                    mid = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = mid;
+                }
+            }
+        }
+        document.getElementById('show5').innerHTML = arr;
+    }
+</script>
+</body>
+</html>
